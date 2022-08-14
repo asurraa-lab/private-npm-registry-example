@@ -7,5 +7,11 @@ pipeline {
       }
     }
 
+    stage('install depb') {
+      steps {
+        sh 'yarn '
+      }
+    }
+
   }
 }
