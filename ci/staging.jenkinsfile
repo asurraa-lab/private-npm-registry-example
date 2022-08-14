@@ -1,0 +1,66 @@
+// pipeline {
+//   agent {
+//     dockerfile {
+//       filename 'ci/ci.dockerfile'
+//     }
+
+//   }
+//   stages {
+//     stage('Install dependency') {
+//       steps {
+//         sh '''
+//           yarn install
+//           '''
+//       }
+//     }
+
+//     stage('Build') {
+//       parallel {
+//         stage('api') {
+//           steps {
+//             sh 'npx nx build api --prod'
+//           }
+//         }
+//         stage('dashboard-ui') {
+//           steps {
+//             sh 'yarn build:all-dashboard:staging'
+//           }
+//         }
+//       }
+//     }
+
+
+//     stage('init and rsync') {
+//       parallel {
+//         stage('asurraa-dev-server') {
+//           steps {
+//             sshagent(credentials: ['asurraa-dev-server']) {
+//               sh 'FROM=./dist TO=/root/temp SERVER=194.233.70.51 BRANCH=staging sh ./ci/scripts/rsync.sh'
+//             }
+//           }
+//         }
+//       }
+//     }
+
+//     stage('serve') {
+//       parallel {
+//         stage('serve api-server') {
+//           steps {
+//             sshagent(credentials: ['asurraa-dev-server']) {
+//               sh 'SERVER=194.233.70.51 ENV=env/api/staging.env sh ci/scripts/serve-api-server-pm2.sh'
+//             }
+//           }
+//         }
+
+//         stage('serve dashboard-ui') {
+//           steps {
+//             sshagent(credentials: ['asurraa-dev-server']) {
+//               sh 'SERVER=194.233.70.51 sh ci/scripts/serve-all-dashboard-pm2.sh'
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
