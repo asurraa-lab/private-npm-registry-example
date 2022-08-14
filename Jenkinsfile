@@ -19,18 +19,7 @@ pipeline {
     stage('Install dependency') {
       steps {
         sh '''
-          yarn install
-          '''
-      }
-    }
-  }
-
-   stages {
-
-    stage('Install dependency') {
-      steps {
-        sh '''
-          pnpm install
+          yarn install && pnpm install
           '''
       }
     }
