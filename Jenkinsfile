@@ -23,6 +23,13 @@ pipeline {
           '''
       }
     }
+    stage('Install dependency') {
+      steps {
+        sh '''
+          pnpm install
+          '''
+      }
+    }
   }
 }
 
