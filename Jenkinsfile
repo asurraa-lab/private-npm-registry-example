@@ -23,6 +23,10 @@ pipeline {
           '''
       }
     }
+  }
+
+   stages {
+
     stage('Install dependency') {
       steps {
         sh '''
