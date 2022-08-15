@@ -9,7 +9,7 @@ pipeline {
     stage('Install dependency') {
       steps {
         sh '''
-         env && yarn install 
+         env
           '''
       }
     }
