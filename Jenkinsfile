@@ -9,14 +9,14 @@ pipeline {
     stage('Install dependency') {
       steps {
         sh '''
-          yarn install 
+         env && yarn install 
           '''
       }
     }
 
     stage('install with pnpm ') {
       steps {
-        sh 'pnpm import && pnpm install'
+        sh 'env && pnpm import && pnpm install'
       }
     }
 
