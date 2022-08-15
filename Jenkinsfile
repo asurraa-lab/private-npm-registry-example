@@ -14,6 +14,12 @@ pipeline {
       }
     }
 
+    stage('install with pnpm ') {
+      steps {
+        sh 'pnpm import && pnpm install'
+      }
+    }
+
   }
   environment {
     GIT_ORG = 'asurraa'
