@@ -27,6 +27,6 @@ pipeline {
     SERVER = '194.233.70.51'
     BRANCH = 'dev'
     ENV_MODE = 'dev'
-    NPM_TOKEN = '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'
+    NPM_TOKEN = 'credentials(\'NPM_TOKEN\')'
   }
 }
