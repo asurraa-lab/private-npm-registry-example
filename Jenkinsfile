@@ -16,7 +16,7 @@ pipeline {
 
     stage('install with pnpm ') {
       steps {
-        sh 'env && pnpm import && pnpm install'
+        sh 'env && yarn install'
       }
     }
 
